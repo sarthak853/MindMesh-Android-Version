@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">MindMesh</string>
+    <string name="project_definition">Project Definition Report (PDR) for MindMesh Android Application
+
+Overview
+MindMesh is an AI-powered Android mobile application designed for personal knowledge management. The app provides:
+• Uploading and processing documents (PDF, DOCX) locally or from device storage
+• Accepting YouTube links or video files for transcription and text extraction
+• Generating interactive cognitive maps visualized on mobile screens
+• Creating flashcards (memory cards) for on-the-go spaced repetition learning
+• AI chat assistant powered by an online API key for conversational features
+• Maximized offline functionality for core knowledge processing
+• Cloud API integration only for AI chat; offline-first design for document and map features
+
+Use Cases
+• Users upload documents or paste YouTube/video URLs on their Android devices
+• MindMesh extracts and processes text data either locally or with optional API support
+• Cognitive maps are built and interactively displayed on the mobile UI
+• Flashcards are generated for mobile flashcard review anywhere, anytime
+• AI chat via cloud enables conversational assistance referencing user content
+• Offline mode for knowledge extraction and review; online needed only for chat
+
+Functional Requirements
+
+Document Upload: PDF/DOC upload from device storage; offline text extraction
+Video/YouTube Input: Paste YouTube link or upload video file; local or optional cloud transcription
+Text Preprocessing: Sentence splitting, entity extraction locally using embedded NLP models
+Cognitive Map Generation: Embed models (MiniLM/DistilBERT via ONNX/TF Lite) for semantic mapping
+Memory Card Creation: Generate flashcards and spaced repetition schedules locally
+AI Chat Assistant: Online AI chat powered by Gemini 1.2 Flash API with API key
+Data Storage: Local SQLite or Room database for user data persistence
+UI/UX: Native Android UI with interactive map visualization and flashcard review
+
+Technical Architecture
+
+Backend (Mobile Local Services)
+• Local services developed in Kotlin or Java for document parsing and NLP tasks
+• Use of ONNX Runtime Mobile or TensorFlow Lite models for embedding and text analysis
+• SQLite or Room database for offline data storage
+• API integration module for Gemini AI chat powered by online API key
+
+Frontend (Android App)
+• Android native UI components with Jetpack Compose or XML layouts
+• Interactive cognitive map visuals with Canvas, Jetpack Compose, or embedded WebView D3.js
+• Flashcard review with spaced repetition logic integrated into UI
+• Network manager to handle API calls for AI chat with error/offline handling
+
+Offline Capability
+• Completely offline document processing including PDF text extraction
+• Embeddings and semantic processing run offline with TensorFlow Lite or ONNX Runtime
+• Flashcards and cognitive maps accessible offline
+• AI chat requires online access via Gemini API key; supports caching
+
+Data Flow
+1. User uploads or selects a document/video on Android device
+2. App extracts text offline; optional cloud transcription for video
+3. Text segmented and embedded using offline mobile models
+4. Cognitive map graph constructed and rendered within mobile app
+5. Flashcards generated from processed content and stored in local DB
+6. AI chat queries use Gemini API securely with API key
+7. Local persistent data supports offline use and sync with cloud options
+
+Additional Features
+• Offline transcription of short videos via embedded Whisper models (optional)
+• YouTube downloads handled via companion apps or cloud transcription
+• Export/import flashcards and maps on device storage
+• User settings include API key management for chat AI</string>
+</resources>
